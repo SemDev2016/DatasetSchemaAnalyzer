@@ -13,7 +13,11 @@ SELECT DISTINCT ?x WHERE {
 
 List all properties having the class as subject and count all objects related with that class via the property
 
-Select Distinct ?property (Count(?x) as ?CountX)
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+Select Distinct ?propertyLabel (Count(?x) as ?CountX)
 Where  
-	{?LowestLevelClass ?property ?x .}
-Group by ?property 
+	{?LowestLevelClass ?property ?x .
+	?property skos:prefLabel ?propertyLabel . 
+  Filter (langMatches(lang(?propertyLabel),"en"))}
+Group by ?propertyLabel
