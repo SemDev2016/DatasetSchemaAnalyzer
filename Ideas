@@ -1,0 +1,21 @@
+Get all classes:
+
+SELECT DISTINCT ?x WHERE {
+  ?y rdf:type ?x
+}
+
+Get superclass for each class:
+
+SELECT DISTINCT ?x WHERE {
+  ?y rdfs:subClassOf ?x
+}
+# Where y is passed in
+
+For every class, find its parent and connect the subclass to its superclass. Do this until you cannot connect any more classes.
+
+List all properties having the class as subject and count all objects related with that class via the property
+
+Select Distinct ?property (Count(?x) as ?CountX)
+Where
+	{?LowestLevelClass ?property ?x .}
+Group by ?property
