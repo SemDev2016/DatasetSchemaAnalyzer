@@ -25,6 +25,13 @@ export default class MainView extends React.Component {
                     </Navbar>
                 </header>
                 <section style={{height: '100%'}}>
+					 <form>
+						   <div class="form-group">
+							 <label for="endpoint">SPARQL endpoint:</label>
+							 <input type="TEXT" class="form-control" id="endpoint" />
+						   </div>
+						   <button type="submit" class="btn btn-default">Submit</button>
+					 </form>    
                     {this.props.children}
                 </section>
             </div>
