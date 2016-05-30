@@ -10,3 +10,10 @@ SELECT DISTINCT ?x WHERE {
   ?y rdfs:subClassOf ?x
 }
 # Where y is passed in
+
+List all properties having the class as subject and count all objects related with that class via the property
+
+Select Distinct ?property (Count(?x) as ?CountX)
+Where  
+	{?LowestLevelClass ?property ?x .}
+Group by ?property 
