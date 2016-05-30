@@ -1,0 +1,4 @@
+Select Distinct ?property (Count(?x) as ?CountX)
+Where  
+	{?LowestLevelClass ?property ?x .}
+Group by ?property 
