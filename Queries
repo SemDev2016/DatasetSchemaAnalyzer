@@ -1,0 +1,12 @@
+Get all classes:
+
+SELECT DISTINCT ?x WHERE {
+  ?y rdf:type ?x
+}
+
+Get superclass for each class:
+
+SELECT DISTINCT ?x WHERE {
+  ?y rdfs:subClassOf ?x
+}
+# Where y is passed in
