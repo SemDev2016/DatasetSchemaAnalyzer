@@ -6,8 +6,12 @@ SELECT DISTINCT ?x WHERE {
 
 Get superclass for each class:
 
-SELECT DISTINCT ?x WHERE {
-  ?y rdfs:subClassOf ?x
+SELECT DISTINCT ?xLabel ?yLabel WHERE {
+  ?y rdfs:subClassOf ?x .
+  ?x skos:prefLabel ?xLabel .
+  ?y skos:prefLabel ?yLabel .
+  Filter (langMatches(lang(?xLabel),"en"))
+  Filter (langMatches(lang(?yLabel),"en"))
 }
 # Where y is passed in
 
